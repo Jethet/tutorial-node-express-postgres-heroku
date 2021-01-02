@@ -17,15 +17,14 @@ pool.on("connect", () => {
 });
 
 const createTables = () => {
-  const schoolTable = `CREATE TABLE IF NOT EXISTS
-  students(
+  const schoolTable = `CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     student_name VARCHAR(128) NOT null,
     student_age INT NOT NULL,
     student_class VARCHAR(128) NOT null,
     parent_contact VARCHAR(128) NOT null,
-    admission_date VARCHAR(128) NOT null,
-)`;
+    admission_date VARCHAR(128) NOT null
+);`
 
   pool
     .query(schoolTable)
@@ -39,15 +38,15 @@ const createTables = () => {
     });
 };
 
-pool.on("remove", () => {
-  console.log("Client removed");
-  process.exit(0)
-})
+// pool.on("remove", () => {
+//   console.log("Client removed");
+//   process.exit(0)
+// })
 
 // export pool and createTables, to be accessible anywhere in the app
 module.exports = {
   createTables,
   pool,
-}
+};
 
-require("make-runnable")
+require("make-runnable");
