@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+    "create": "node ./services/db createTables",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
