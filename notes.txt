@@ -1,2 +1,1 @@
-Tutorial Build a Node.js, Express and PostgreSQL REST API - Tania Rascia
-& deploy to Heroku
+Tutorial Persisting a Node API, with Express and PostgreSQL
