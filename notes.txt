@@ -1,1 +1,3 @@
 Tutorial Persisting a Node API, with Express and PostgreSQL
+
+Create table by running code on the command line with package make-runnable.
