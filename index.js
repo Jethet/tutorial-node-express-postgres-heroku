@@ -27,8 +27,31 @@ app.get("/student", (req, res) => {
         res.status(200).send({
           status: 'Successful',
           message: 'Student information retrieved',
-          students: result.rows
+          students: result
         })
+      }
+    })
+  })
+})
+
+app.get("/student/:id", (req, res) => {
+  const studentId = parseInt(req.params.id)
+
+  pool.connect((err, client, done) => {
+    const query = 'SELECT * FROM students WHERE id = $1;'
+    const id = [studentId]
+    client.query(query, id, (error, result) => {
+      done()
+      if (error) {
+        res.status(400).json({error})
+      // }
+      // if (result.rows <  '1') {
+      //   res.status(404).send({
+      //     status: 'Failed',
+      //     message: 'No student information found'
+      //   })
+      } else {
+        res.status(200).send(result.rows)
       }
     })
   })
